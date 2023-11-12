@@ -28,6 +28,7 @@ menu.onclick = () => {
 
     
     }
+
 }
 
 window.onclick=function()
@@ -65,22 +66,17 @@ window.onclick=function()
             poplog.style.display='none';
             popsign.style.display='none';
             document.body.style.overflow='';
-            document.getElementById('header').style.filter='';
-            document.getElementById('header').style.position='';
             login_form.reset();   
             $(".fullscreen-container").fadeOut(200);
-            enableScroll()
-           
+
+
                 }
         if (sdisplay=='block'){
             popsign.style.display='none';
             poplog.style.display='none';
             document.body.style.overflow='';
-            document.getElementById('header').style.filter='';
-            document.getElementById('header').style.position='';
             signup_form.reset(); 
             $(".fullscreen-container").fadeOut(200);     
-            enableScroll()
         }
 
     }
@@ -93,6 +89,56 @@ window.onclick=function()
     email_verify.addEventListener('mousedown',event => event.stopPropagation())
 };
 
+//close button for registrations forms
+
+function close_forms(){
+    //login_form close
+    const poplog = document.getElementById('login');
+    const ldisplay = window.getComputedStyle(poplog).display;
+    poplog.style.display='none';
+    document.body.style.overflow='';
+    login_form.reset();   
+    $(".fullscreen-container").fadeOut(200);
+    //signup_form close
+    const popsign= document.getElementById('signup');
+    const sdisplay= window.getComputedStyle(popsign).display;
+    popsign.style.display='none';
+    document.body.style.overflow='';
+    signup_form.reset(); 
+    $(".fullscreen-container").fadeOut(200);
+    //emailverify_form close
+    const email_verify=document.getElementById("email_verify");
+    const emaildisplay= window.getComputedStyle(email_verify).display;
+    email_verify.style.display='none';
+    document.body.style.overflow='';
+    $(".fullscreen-container").fadeOut(200);
+}
+
+
+//countdown
+
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = "";
+        }
+    }, 1000);
+    
+}
+function resend_time(){
+    var oneMinutes = 4 * 1,
+        display = document.querySelector('#time');
+    startTimer(oneMinutes, display);
+}
 
 //Search
 
@@ -120,6 +166,7 @@ function poplogin(){
 
     if (localStorage.getItem("text")!="login"){
         document.getElementById('signup').style.display='none';
+        document.getElementById('email_verify').style.display='none';
         document.getElementById('login').style.display='block';
         document.getElementById("signup_password").type="password";
         document.getElementById("signup_pass").className = "fa-solid fa-eye";
@@ -128,8 +175,11 @@ function poplogin(){
         $(".fullscreen-container").fadeTo(200, 1);
         document.getElementById('signup_form').reset();
         document.body.style.overflow='hidden';
-        window.scrollTo(0,0);
-        disableScroll()
+        check_login();
+        /*refresh fail status*/
+        var status = document.getElementById('status_login');
+        var status_text = status.innerText || status.textContent;
+        status.innerHTML = "";    
     }
     else if(localStorage.getItem("text")=="login"){
         window.location.replace('http://localhost/website_project1/profile.php')
@@ -141,10 +191,12 @@ function poplogin(){
 
 function popsign(){
     document.getElementById('login').style.display='none';
+    document.getElementById('email_verify').style.display='none';
     document.getElementById('signup').style.display='block';
     document.getElementById('login_form').reset();
     document.body.style.overflow='hidden';
-    disableScroll()
+    check_signup();
+
 }
 
 

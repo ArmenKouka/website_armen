@@ -213,6 +213,7 @@ button {
     font-weight: 400;
     transition: all .42s ease;
     cursor: pointer;
+    
 }
 .nav-icon i:hover{
     transform: scale(1.1);
@@ -221,10 +222,9 @@ button {
 
 #menu-icon{
     font-size: 35px;
-    color:#fff ;
-    z-index: 10000px;
-    cursor: pointer;
+    color:white;
     display: none ;
+    cursor: pointer;
 }
 
 
@@ -416,6 +416,21 @@ form .text_field{
     color: brown;
     font-family: 'none';
     
+}
+
+#login .gg-close{
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    cursor: pointer;
+    background-color: rgba(0,0,0, 0.5);
+    color: #ffffff;
+    transition: .4s;
+}
+
+#login .gg-close:hover{
+    background-color: rgba(0,0,0, .8);
+    transition: .4s;
 }
 
 
@@ -619,6 +634,22 @@ input[type="date"]{
 #signup_pass:hover{
     color:black;
 }
+
+#signup .gg-close{
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    cursor: pointer;
+    background-color: rgba(0,0,0, 0.5);
+    color: #ffffff;
+    transition: .4s;
+}
+
+#signup .gg-close:hover{
+    background-color: rgba(0,0,0, .8);
+    transition: .4s;
+}
+
 /* */
 
 /*email verify---------------------------------*/
@@ -628,7 +659,7 @@ input[type="date"]{
     top:50% ;
     left: 50%;
     transform: translate(-50%,-50%);
-    width: 300px;
+    width: 350px;
     background-color: white;
     border-radius: 10px;
     max-height: calc(100vh - 10px);
@@ -687,6 +718,39 @@ input[type="date"]{
     color: brown;
     font-family: 'none';
 }
+
+#email_verify .gg-close{
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    cursor: pointer;
+    background-color: rgba(0,0,0, 0.5);
+    color: #ffffff;
+    transition: .4s;
+}
+
+#email_verify .gg-close:hover{
+    background-color: rgba(0,0,0, .8);
+    transition: .4s;
+}
+
+.resendcode{
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #666666;
+}
+.resendcode a{
+    color: brown;
+    text-decoration: none;
+    cursor:pointer;
+    opacity: 0.5;
+}
+.resendcode a:hover{
+    text-decoration: underline;
+
+}
+
 
 /****Cart***/
  .cart{
@@ -949,10 +1013,11 @@ footer a:hover{
             left: 20px;
             background-color: white;
         }
+
         .navmenu li a::after {
             content: "";
             position: absolute;
-            width: 35%;
+            width: 0%;
             transform: scaleX(0);
             height: 2px;
             bottom: -6px;

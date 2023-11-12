@@ -1,5 +1,4 @@
 <?php
-error_reporting(E_ERROR | E_PARSE);
 session_start();
 
     include("connection.php");
@@ -58,7 +57,7 @@ session_start();
      
       <li><a href="index.html">Home </a></li>
       <li><a href="Products.php">Products</a></li>
-      <li><a href="about.html">About</a></li>
+      <li><a href="about.html">About us</a></li>
     </ul>
     </div>
 
@@ -383,19 +382,20 @@ session_start();
             </script>
             ";
 
-
           }    
-          
+
           if($change=="true"){
-            $query_id= "select * from users where users_id ='$user_id' limit 1";
+            $query_id= "select * from users where user_id ='$user_id' limit 1";
             $result=mysqli_query($con,$query_id);
+
+
 
             if ($result && mysqli_num_rows($result) >= 0){
               $user_id = mysqli_fetch_assoc($result);
               $pass_change=password_hash($pass2, PASSWORD_DEFAULT);
               $query = "UPDATE  users SET password='$pass_change' where user_id = '$id'";
               $query_run= mysqli_query($con,$query);
-              echo "<script>window.location ='profile.php';</script>";
+              echo "<script>window.location ='index.html';</script>";
               exit;
              
                 
