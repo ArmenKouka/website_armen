@@ -1,3 +1,4 @@
+
 /*-----------------SHOP PAGE--------------------*/
 #shop-banner{
     background-image: url(../img/banner/Shop_banner.png);
@@ -43,7 +44,7 @@ h4 {
   display: flex;
   justify-content:center;
   flex-wrap: wrap;
-  gap: 0 8%;
+  gap: 1%;
   margin:0  2% 5%;
 
 

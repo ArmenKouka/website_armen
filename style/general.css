@@ -288,6 +288,7 @@ button {
     text-align: center;
     padding:   20px ;
     border-bottom:1px solid silver ;
+    cursor:default;
 }
 #login form{
     padding: 0 40px;
@@ -385,6 +386,7 @@ form .text_field{
     text-align: center;
     font-size: 16px;
     color: #666666;
+    cursor:default;
 }
 .signup_link a{
     color: brown;
@@ -446,6 +448,8 @@ form .text_field{
     border-radius: 10px;
     max-height: calc(100vh - 10px);
     overflow-y: scroll;
+    cursor:default;
+
 
 
     
@@ -665,6 +669,8 @@ input[type="date"]{
     max-height: calc(100vh - 10px);
     overflow-y: scroll;     
     z-index: 1;
+    cursor:default;
+
 
 
 }
@@ -739,17 +745,16 @@ input[type="date"]{
     text-align: center;
     font-size: 16px;
     color: #666666;
-}
-.resendcode a{
-    color: brown;
-    text-decoration: none;
-    cursor:pointer;
-    opacity: 0.5;
-}
-.resendcode a:hover{
-    text-decoration: underline;
+    cursor:default;
 
 }
+#resend_code{
+    color: brown;
+    text-decoration: none;
+    cursor:default;
+    opacity: 0.5;
+}
+
 
 
 /****Cart***/
