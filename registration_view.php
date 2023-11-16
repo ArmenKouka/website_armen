@@ -214,13 +214,23 @@
         <div id="status_email"></div>
         <button type="submit" id="submit_email" onclick="loading_verify()" value="verify email" disabled><i id="spinner" class=""></i>Verify</button>
         <div class="resendcode">
-        Didn't Receive the Verification Code? <a href="login.php">Resend</a> in <span id="time">01:00</span>
+          Didn't Receive the Verification Code? <a  id="resend_code">Resend</a> in <span id="time">00:20</span>
         </div>
 
   
     </form>
     <script>
-  
+
+      $("#resend_code").click( function() {
+
+      $.ajax({
+          type: 'GET',
+          url: 'resend_verificationCode.php',
+          success: function() {
+          }
+      });
+      });
+
       $("#submit_email").click( function() {
       
         $.post( $("#email_form").attr("action"),

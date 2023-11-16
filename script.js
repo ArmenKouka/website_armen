@@ -119,7 +119,9 @@ function close_forms(){
 
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
-    setInterval(function () {
+    const myInterval = setInterval(myTimer, 1000);
+
+    function myTimer () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -128,18 +130,23 @@ function startTimer(duration, display) {
 
         display.textContent = minutes + ":" + seconds;
 
-        if (--timer < 0) {
-            timer = "";
+        if (--timer <0) {
+            timer = 0;
+            const resend_code=document.getElementById("resend_code");
+            resend_code.style.opacity=1;
+            resend_code.style.cursor="pointer";
+            btnstyle=document.head.appendChild(document.createElement("style"));
+            btnstyle.innerHTML="#resend_code:hover{text-decoration: underline; }";
+            clearInterval(myInterval);
         }
-    }, 1000);
-    
+    };   
 }
+
 function resend_time(){
     var oneMinutes = 4 * 1,
         display = document.querySelector('#time');
     startTimer(oneMinutes, display);
 }
-
 //Search
 
 function search(){
@@ -174,12 +181,18 @@ function poplogin(){
         document.getElementById("login_pass").className = "fa-solid fa-eye";
         $(".fullscreen-container").fadeTo(200, 1);
         document.getElementById('signup_form').reset();
+        document.getElementById('email_form').reset();
+        check_verify();
         document.body.style.overflow='hidden';
         check_login();
-        /*refresh fail status*/
-        var status = document.getElementById('status_login');
-        var status_text = status.innerText || status.textContent;
-        status.innerHTML = "";    
+        /*login refresh fail status*/
+        var status_login = document.getElementById('status_login');
+        var status_text = status_login.innerText || status_login.textContent;
+        status_login.innerHTML = "";    
+        /*verify refresh fail status*/
+        var status_verify = document.getElementById('status_email');
+        var status_text = status_verify.innerText || status_verify.textContent;
+        status_verify.innerHTML = "";    
     }
     else if(localStorage.getItem("text")=="login"){
         window.location.replace('http://localhost/website_project1/profile.php')
